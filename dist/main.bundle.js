@@ -3915,7 +3915,7 @@ var ApiService = (function () {
         this.http = http;
         this.authSer = authSer;
         this.loaderSer = loaderSer;
-        this.baseUrl = "http://68.183.215.159:3000//api/";
+        this.baseUrl = "http://68.183.215.159:3000/api/";
     }
     // readonly baseUrl = "http://localhost:3005/api/"
     ApiService.prototype.createUrlString = function (index, variables, filter, ordering) {
@@ -4248,7 +4248,7 @@ var AuthService = (function () {
     };
     AuthService.prototype.logout = function () {
         this.logoutLocalStorage();
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('/login');
     };
     AuthService.prototype.logInLocalStorage = function (data) {
         localStorage.setItem('userId', data.userId);

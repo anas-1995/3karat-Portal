@@ -72,7 +72,7 @@ export class AuthService {
 
   logout() {
     this.logoutLocalStorage();
-    this.router.navigateByUrl('login')
+    this.router.navigateByUrl('/login')
   }
 
   logInLocalStorage(data) {
