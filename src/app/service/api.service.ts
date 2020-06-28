@@ -11,8 +11,8 @@ export class ApiService {
 
   constructor(public http: HttpClient, private authSer: AuthService, private loaderSer: LoaderService) {
   }
-  // readonly baseUrl = "http://174.138.28.26:3434/api/v1/"
-  readonly baseUrl = "http://localhost:3005/api/"
+  readonly baseUrl = "http://68.183.215.159:3000//api/"
+  // readonly baseUrl = "http://localhost:3005/api/"
 
 
 
