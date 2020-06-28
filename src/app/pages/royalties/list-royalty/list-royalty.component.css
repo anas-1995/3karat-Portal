@@ -1,0 +1,11 @@
+.box {
+    max-height: 0px;
+    overflow-y: hidden;
+    transition: ease-in-out 400ms max-height;
+    overflow: hidden;
+}
+
+.box.opened {
+    max-height: 10000px;
+    transition: ease-in-out 600ms max-height;
+}

@@ -1,0 +1,48 @@
+<section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+  <div class="auth-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="login-card card-body auth-body">
+          <form class="md-float-material" [formGroup]="logInForm" (ngSubmit)="submitLogin()">
+            <div class="auth-box">
+              <div class="row m-b-20">
+                <div class="col-md-12">
+                  <h3 class="text-left txt-primary">{{"LOGIN.TITLE" | translate}}</h3>
+                </div>
+              </div>
+              <hr />
+              <label class="text-danger errorLabel">{{message|translate}}</label>
+              <div class="form-group">
+                <input type="email" (input)="isSubmitted=false;message=''" class="form-control" formControlName="email"
+                  placeholder="{{'LOGIN.EMAIL' | translate}}">
+                <span class="md-line"></span>
+                <!-- <label *ngIf="logInForm.hasError('required','email') && isSubmitted"
+                  class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+                <label
+                  *ngIf="logInForm.hasError('email', 'email') && !logInForm.hasError('required','email') && isSubmitted"
+                  class="text-danger errorLabel">{{'ERROR_FORM.ERROR_VALID_EMAIL'|translate}}</label> -->
+
+
+
+              </div>
+              <div class="form-group">
+                <input type="password" (input)="isSubmitted=false;message=''" class="form-control"
+                  formControlName="password" placeholder="{{'LOGIN.PASSWORD' | translate}}">
+                <span class="md-line"></span>
+                <label *ngIf="logInForm.get('password').invalid && isSubmitted"
+                  class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+              </div>
+              <div class="row m-t-30">
+                <div class="col-md-12">
+                  <button type="submit"
+                    class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">{{"LOGIN.TITLE" | translate}}</button>
+                </div>
+              </div>
+              <hr />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

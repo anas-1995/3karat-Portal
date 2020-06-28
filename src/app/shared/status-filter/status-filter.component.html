@@ -1,0 +1,13 @@
+<div class="row" style="padding: 0px 0px;">
+  <!-- <button class="btn btn-default">Default Button</button>
+  <button class="btn btn-primary">Primary Button</button>
+  <button class="btn btn-success">Success Button</button>
+  <button class="btn btn-warning">Warning Button</button>
+  <button class="btn btn-danger">Danger Button</button>
+  <button class="btn btn-inverse">Inverse Button</button> -->
+
+  <button *ngFor="let button of statusFilter" (click)="changeStatusChild(button.value)"
+    [ngClass]="{'selected': currentState==button.value}" class="btn btn-{{button.type}}">
+    {{"GLOBAL.STATUSLIST."+ button.label|translate}}
+  </button>
+</div>

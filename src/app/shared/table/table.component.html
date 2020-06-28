@@ -1,0 +1,99 @@
+<div class="row" style="margin: 0px;overflow-x: auto;">
+
+  <table class="table table-bordered table-striped ">
+
+    <thead>
+      <tr>
+        <th *ngFor="let oneField of fields">{{oneField.label|translate}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let onerow of data;let index=index">
+        <td *ngFor="let oneField of fields">
+          <!-- image type -->
+          <div *ngIf="oneField.type=='image'" class="divImg">
+            <img *ngIf="getByStringKey(onerow,oneField.key)!=''" src="{{getByStringKey(onerow,oneField.key)}}">
+            <img *ngIf="getByStringKey(onerow,oneField.key)==''" src="assets/images/clothes-hanger.jpg">
+          </div>
+
+          <!-- string type -->
+          <span *ngIf="oneField.type=='string'"> {{onerow[oneField.key]}}</span>
+
+          <!-- price type -->
+          <strong *ngIf="oneField.type=='price'" class="badge badge-info"> {{onerow[oneField.key]}}</strong>
+
+          <!-- status type -->
+          <strong *ngIf="oneField.type=='status' && (onerow[oneField.key]=='unavailable')" class="badge badge-danger">
+            {{"GLOBAL.STATUSLIST."+ onerow[oneField.key]|translate}}</strong>
+          <strong *ngIf="oneField.type=='status' && (onerow[oneField.key]=='active')" class="badge badge-success">
+            {{"GLOBAL.STATUSLIST."+ onerow[oneField.key]|translate}}</strong>
+          <strong *ngIf="oneField.type=='status' && ( onerow[oneField.key]=='assigned')"
+            class="badge badge-dark-warning">
+            {{"GLOBAL.STATUSLIST."+onerow[oneField.key]|translate}}</strong>
+          <strong *ngIf="oneField.type=='status' && (onerow[oneField.key]=='pending')" class="badge badge-warning">
+            {{"GLOBAL.STATUSLIST."+onerow[oneField.key]|translate}}</strong>
+          <strong *ngIf="oneField.type=='status' && (onerow[oneField.key]=='packed')" class="badge badge-danger">
+            {{"GLOBAL.STATUSLIST."+onerow[oneField.key]|translate}}</strong>
+          <strong
+            *ngIf="oneField.type=='status' && (onerow[oneField.key]=='delivered' || onerow[oneField.key]=='delivering')"
+            class="badge badge-success">
+            {{"GLOBAL.STATUSLIST."+onerow[oneField.key]|translate}}</strong>
+          <strong *ngIf="oneField.type=='status' && (onerow[oneField.key]=='canceled')" class="badge badge-inverse">
+            {{"GLOBAL.STATUSLIST."+onerow[oneField.key]|translate}}</strong>
+
+          <!-- gender type -->
+          <i *ngIf="oneField.type=='gender'&& onerow[oneField.key]=='female'" style="color: #fc6180;font-size: 20px"
+            class="fa fa-female" aria-hidden="true"></i>
+          <i *ngIf="oneField.type=='gender'&& onerow[oneField.key]=='male'" style="color: #4680ff;font-size: 20px"
+            class="fa fa-male" aria-hidden="true"></i>
+
+          <!-- date type -->
+          <span *ngIf="oneField.type=='date'">{{formatDate(onerow[oneField.key],oneField.viewDate||false)}}</span>
+
+          <!-- object type -->
+          <span *ngIf="oneField.type=='object'">{{getByStringKey(onerow,oneField.key)}}</span>
+
+          <!-- button type and not icon -->
+          <div style="display: inline-flex;" *ngIf="oneField.type=='buttons' && !oneField.isIcon">
+            <div style="margin: 5px 5px;float: left;" *ngFor="let oneButton of oneField.buttons">
+              <button *ngIf="oneButton.condition==null" (click)="action(onerow.id,oneButton.action,index)"
+                class="btn btn-{{oneButton.type}}" type="button">{{oneButton.label|translate}}
+              </button>
+              <button *ngIf="oneButton.condition!=null && checkCondition(onerow,oneButton.condition)"
+                (click)="action(onerow.id,oneButton.action,index)" class="btn btn-{{oneButton.type}}"
+                type="button">{{oneButton.label|translate}}
+              </button>
+            </div>
+          </div>
+          <!-- button type and icon -->
+          <div style="display: inline-flex;" *ngIf="oneField.type=='buttons' && oneField.isIcon">
+            <div style="margin: 5px 5px;float: left;" *ngFor="let oneButton of oneField.buttons">
+              <button *ngIf="oneButton.condition==null" placement="top" ngbTooltip="{{oneButton.label|translate}}"  (click)="action(onerow.id,oneButton.action,index)"
+                class="btn btn-{{oneButton.type}}" type="button">
+                <i class="icofont {{oneButton.icon}}"></i>
+              </button>
+              <button *ngIf="oneButton.condition!=null && checkCondition(onerow,oneButton.condition)"
+                (click)="action(onerow.id,oneButton.action,index)" placement="top" ngbTooltip="{{oneButton.label|translate}}" class="btn btn-{{oneButton.type}}" type="button">
+                <i class="icofont {{oneButton.icon}}"></i>
+              </button>
+            </div>
+          </div>
+
+
+          <strong *ngIf="oneField.type=='multiValue'" class="badge badge-{{getFromMultiValue(onerow,oneField).type}}">
+            {{getFromMultiValue(onerow,oneField).label|translate}}</strong>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row" style="margin: 0px;" *ngIf="withPage">
+  <pagination [totalItems]="count" [itemsPerPage]="limit" previousText="&lsaquo;" nextText="&rsaquo;"
+    firstText="&laquo;" lastText="&raquo;" (pageChanged)="pageChanged($event)" [maxSize]="7" [rotate]="false"
+    [boundaryLinks]="true"></pagination>
+  <!-- <div class="per-page-sec">
+    <span>{{"client.perPage"|translate}}</span>
+    <input id="perpage" class="form-control" type="number" (change)="changepages($event)" [value]="pages">
+  </div> -->
+</div>

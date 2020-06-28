@@ -1,0 +1,194 @@
+{
+  "LOGIN": {
+    "TITLE": "تسجيل دخول",
+    "EMAIL": "البريد الالكتروني",
+    "PASSWORD": "كلمة السر"
+  },
+  "TITLESPAGE": {
+    "LOGIN": "تسجيل دخول",
+    "LOCATION": "المناطق",
+    "CITY": "المدن",
+    "STREET": "الشوارع",
+    "ROYALTY": "العقارات"
+  },
+  "MAINMENU": {
+    "LOCATION": "المناطق",
+    "SUBLOCATION": "المناطق الفرعية",
+    "CITY": "المدن",
+    "STREET": "الشوارع",
+    "ROYALTY": "العقارات"
+  },
+  "ERROR_FORM": {
+    "ERROR_FIELD_REQUIRED": "هذا الحقل ضروري",
+    "ERROR_VALID_EMAIL": "الرجاء ادخال بردي الكتروني صالح",
+    "ERROR_IMAGE_REQUIRED": "الصورة ضرورية",
+    "LOGIN_FIELD": "فشل تسجيل الدخول"
+  },
+  "MODAL": {
+    "CONFIRMDELETE": {
+      "AREYOUSURE?": "هل انت متاكد ?",
+      "YOUWANTTODELETE": "تريد الحذف",
+      "YESDELETEIT": "نعم , احذف!",
+      "NOTHANKS": "لا, شكرا"
+    },
+    "SUCCESS": {
+      "UPDATE_IS_DONE": "تم التعديل بنجاح",
+      "CREATE_IS_DONE": "تمت الإضافة بنجاح",
+      "OK": "حسناً"
+    },
+    "FAILED": {
+      "UPDATE_IS_DONE": "تم التعديل",
+      "OK": "حسناً"
+    },
+    "ITEMINFO": {
+      "TITLE": "معلومات"
+    }
+  },
+  "ERROR_CODE": {
+    "500": "Some thing is error",
+    "401": "Email is already used",
+    "402": "Email is already used",
+    "454": "Center does not have a product",
+    "452": "Center Not Found"
+  },
+  "ERROR_TITLE": {
+    "452": "Please Assign Order To Center First"
+  },
+  "GLOBAL": {
+    "ADD": "اضافة",
+    "EDIT": "تعديل",
+    "SHOW": "عرض",
+    "SAVE": "حفظ",
+    "RESET": "اعادة",
+    "DELETE": "حذف",
+    "BACK": "عودة",
+    "CANCEL": "إالغاء",
+    "DONE": "تم",
+    "STATUS": "الحالة",
+    "CLEAR": "حذف",
+    "UPDATE": "تحديث",
+    "ENTER": "ادخل",
+    "NAME": "الاسم",
+    "CREATED_AT": "تاريخ الانشاء",
+    "CITY": "المدينة",
+    "LOCATION": "المنطقة",
+    "STREET": "الشارع",
+    "ADDCITY": "إضافة مدينة",
+    "ADDLOCATION": "إضافة منظقة",
+    "ADDSUBLOCATION": "إضافة منطقة فرعية",
+    "ADDSTREET": "إضافة شارع",
+    "ADDROYALTY": "إضافة عقار",
+    "SUBLOCATION": "المنطقة الفرعية",
+    "SEARCH": "بحث",
+    "OPENSEARCH": "فتح البحث",
+    "CLOSESEARCH": "اغلاق البحث",
+    "MOBILE": "رقم هاتف",
+    "OWNER": "المالك",
+    "BUILDINGNAME": "اسم البناء",
+    "BUILDINGNUMBER": "رقم البناء",
+    "AREA": "المساحة",
+    "FLOOR": "الطابق",
+    "NUMBERROOM": "عدد الغرف",
+    "DIRECTION": "الاتجاه",
+    "DESCRIPTION": "صفة",
+    "OWNERDESCRIPTION": "صفة الملكية",
+    "TYPE": "النوع",
+    "LOOK": "الإطلالة",
+    "COVER": "الكسوة",
+    "TYPEROYALTY": "نوع العقار",
+    "SELLINGMINPRICE": "اقل سعر بيع",
+    "SELLINGMAXPRICE": "اكبر سعر بيع",
+    "RENTINGMINPRICE": "اقل سعر اجار",
+    "RENTINGMAXPRICE": "اكبر سعر اجار",
+    "SELLINGPRICE": "سعر البيع",
+    "RENTINGPRICE": "سعر الاجار",
+    "HASLIFT": "مصعد",
+    "HASTERRACE": "مصطبة",
+    "HASPARKING": "مراب",
+    "OWNERNAME": "اسم المالك",
+    "MEDIATORNAME": "اسم الوسيط",
+    "PHONENUMBER": "رقم هاتف",
+    "MOBILEPHONENUMBER": "رقم جوال",
+    "EMPLOYNAME": "اسم الموظف",
+    "NOTE": "ملاحظة",
+    "OWNERDESCRIPTIONLIST": {
+      "frog": "فروغ",
+      "property": "ملكية",
+      "frogProperty": "ملكية - فروغ"
+    },
+    "DESCRIPTIONLIST": {
+      "commercial": "تجاري",
+      "residential": "سكني",
+      "parking": "مرأب",
+      "warehouse": "مستودع"
+    },
+    "HASPARKINGLIST": {
+      "no": "لا",
+      "yesFree": "نعم مجانا",
+      "yesNotFree": "نعم مأجور"
+    },
+    "HASTERRACELIST": {
+      "yes": "نعم",
+      "no": "لا"
+    },
+    "DIRECTIONLIST": {
+      "east": "شرق",
+      "west": "غرب",
+      "north": "شمال",
+      "south": "جنوب",
+      "eastWest": "شرق غرب",
+      "eastNorth": "شرق شمال",
+      "eastSouth": "شرق جنوب",
+      "westNorth": "غرب شمال",
+      "westSouth": "غرب جنوب",
+      "northSouth": "شمال جنوب",
+      "eastWestNorth": "شرق غرب شمال",
+      "eastWestSouth": "شرق غرب جنوب",
+      "eastNorthSouth": "شرق شمال جنوب",
+      "westNorthSouth": "غرب شمال جنوب",
+      "eastWestNorthSouth": "شرق غرب شمال جنوب"
+    },
+    "HASLIFTLIST": {
+      "no": "لا",
+      "yesInner": "نعم داخلي",
+      "yesOuter": "نعم خارجي"
+    },
+    "COVERLIST": {
+      "bad": "سيئ",
+      "normal": "عادي",
+      "good": "جيد",
+      "delox": "ديلوكس",
+      "superDelox": "سوبر ديلوكس"
+    },
+    "TYPEROYALTYLIST": {
+      "greenTaboo": "طابو اخضر",
+      "notary": "كاتب بالعدل",
+      "courtRuling": "حكم محكمة",
+      "violations": "مشاع",
+      "temporaryTaboo": "طابو مؤقت",
+      "agricultural": "زراعي"
+    },
+    "TYPELIST": {
+      "selling": "بيع",
+      "renting": "اجار",
+      "investment": "استثمار",
+      "sellingRenting": "بيع - اجار",
+      "sellingInvestment": "بيع - استثمار",
+      "rentingInvestment": "اجار - استثمار",
+      "sellingRentingInvestment": "بيع - اجار - استثمار"
+    },
+    "STATUSLIST": {
+      "all": "All",
+      "active": "فعال",
+      "unavailable": "غير متاح",
+      "pending": "Pending",
+      "packed": "Packed",
+      "delivering": "In Delivery",
+      "delivered": "Delivered",
+      "assigned": "Assigned",
+      "canceled": "Canceled"
+    },
+    "FROM": "From",
+    "TO": "To"
+  }
+}

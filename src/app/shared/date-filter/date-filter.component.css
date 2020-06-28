@@ -1,0 +1,9 @@
+.datepicker {
+  min-width: 250px;
+  width: 250px;
+}
+
+
+.col-sm-4:first-child {
+  padding-left: 0px;
+}

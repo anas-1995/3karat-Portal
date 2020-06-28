@@ -1,0 +1,391 @@
+<form (ngSubmit)="onFormSubmit()" [formGroup]="royaltyForm" class="levelForm">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.TYPE"|translate}}</label>
+          <select formControlName="typeItem" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.TYPE'|translate}}</option>
+            <option *ngFor="let oneType of types" [selected]="" [value]="oneType.value">
+              {{"GLOBAL.TYPELIST."+oneType.title | translate}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('typeItem').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.STATUS"|translate}}</label>
+          <select formControlName="status" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.STATUS'|translate}}</option>
+            <option *ngFor="let oneStatus of status" [selected]="" [value]="oneStatus.value">
+              {{"GLOBAL.STATUSLIST."+oneStatus.title | translate}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('status').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.DESCRIPTION"|translate}}</label>
+          <select formControlName="description" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.DESCRIPTION'|translate}}</option>
+            <option *ngFor="let oneDescription of descriptions" [selected]="" [value]="oneDescription.value">
+              {{"GLOBAL.DESCRIPTIONLIST."+oneDescription.title | translate}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('description').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-6">
+        <div class="form-group">
+          <label for="type">{{'GLOBAL.CITY'|translate}}</label>
+          <select formControlName="cityId" (change)="changeCity()" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.CITY'|translate}}</option>
+            <option *ngFor="let oneCity of cities" [selected]="" [value]="oneCity.id">
+              {{oneCity.name}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('cityId').invalid  && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-6">
+        <div class="form-group">
+          <label for="type">{{'GLOBAL.LOCATION'|translate}}</label>
+          <select formControlName="locationId" (change)="changeLocation()" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.LOCATION'|translate}}</option>
+            <option *ngFor="let oneLocation of locations" [selected]="" [value]="oneLocation.id">
+              {{oneLocation.name}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('locationId').invalid  && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-6">
+        <div class="form-group">
+          <label for="type">{{'GLOBAL.SUBLOCATION'|translate}}</label>
+          <select formControlName="subLocationId" (change)="changeSubLocation()" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.SUBLOCATION'|translate}}</option>
+            <option *ngFor="let oneSubLocation of subLocations" [selected]="" [value]="oneSubLocation.id">
+              {{oneSubLocation.name}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('subLocationId').invalid  && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-6">
+        <div class="form-group">
+          <label for="type">{{'GLOBAL.STREET'|translate}}</label>
+          <select formControlName="streetId" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.STREET'|translate}}</option>
+            <option *ngFor="let oneStreet of streets" [selected]="" [value]="oneStreet.id">
+              {{oneStreet.name}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('streetId').invalid  && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.BUILDINGNAME"|translate}}</label>
+          <input class="form-control" formControlName="buildingName" type="text" (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.BUILDINGNAME'|translate}}">
+          <label *ngIf="royaltyForm.get('buildingName').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.BUILDINGNUMBER"|translate}}</label>
+          <input class="form-control" formControlName="buildingNumber" type="text"
+            (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.BUILDINGNUMBER'|translate}}">
+          <label *ngIf="royaltyForm.get('buildingNumber').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.AREA"|translate}}</label>
+          <input class="form-control" formControlName="area" type="number" min="0"
+            (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.AREA'|translate}}">
+          <label *ngIf="royaltyForm.get('area').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.FLOOR"|translate}}</label>
+          <input class="form-control" formControlName="floor" type="text" (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.FLOOR'|translate}}">
+          <label *ngIf="royaltyForm.get('floor').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.NUMBERROOM"|translate}}</label>
+          <input class="form-control" formControlName="numberRoom" type="text" (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.NUMBERROOM'|translate}}">
+          <label *ngIf="royaltyForm.get('numberRoom').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.DIRECTION"|translate}}</label>
+          <select formControlName="direction" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.DIRECTION'|translate}}</option>
+            <option *ngFor="let oneDirection of directions" [selected]="" [value]="oneDirection.value">
+              {{"GLOBAL.DIRECTIONLIST."+oneDirection.title | translate}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('direction').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.LOOK"|translate}}</label>
+          <input class="form-control" formControlName="look" type="text" min="0" (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.LOOK'|translate}}">
+          <label *ngIf="royaltyForm.get('look').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.COVER"|translate}}</label>
+          <select formControlName="cover" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.COVER'|translate}}</option>
+            <option *ngFor="let oneCover of covers" [selected]="" [value]="oneCover.value">
+              {{"GLOBAL.COVERLIST."+oneCover.title | translate}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('cover').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.TYPEROYALTY"|translate}}</label>
+          <select formControlName="typeRoyalty" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.TYPEROYALTY'|translate}}</option>
+            <option *ngFor="let oneType of typesRoyalty" [selected]="" [value]="oneType.value">
+              {{"GLOBAL.TYPEROYALTYLIST."+oneType.title | translate}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('typeRoyalty').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.SELLINGPRICE"|translate}}</label>
+          <input class="form-control" formControlName="sellingPrice" type="number" min="0"
+            (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.SELLINGPRICE'|translate}}">
+          <label *ngIf="royaltyForm.get('sellingPrice').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.RENTINGPRICE"|translate}}</label>
+          <input class="form-control" formControlName="rentingPrice" type="number" min="0"
+            (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.RENTINGPRICE'|translate}}">
+          <label *ngIf="royaltyForm.get('rentingPrice').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.OWNERDESCRIPTION"|translate}}</label>
+          <select formControlName="ownerDescription" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.OWNERDESCRIPTION'|translate}}
+            </option>
+            <option *ngFor="let oneItem of ownerDescriptions" [selected]="" [value]="oneItem.value">
+              {{"GLOBAL.OWNERDESCRIPTIONLIST."+oneItem.title | translate}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('ownerDescription').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.HASLIFT"|translate}}</label>
+          <select formControlName="hasLift" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.HASLIFT'|translate}}</option>
+            <option *ngFor="let oneItem of hasLift" [selected]="" [value]="oneItem.value">
+              {{"GLOBAL.HASLIFTLIST."+oneItem.title | translate}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('hasLift').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.HASPARKING"|translate}}</label>
+          <select formControlName="hasParking" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.HASPARKING'|translate}}</option>
+            <option *ngFor="let oneItem of hasParking" [selected]="" [value]="oneItem.value">
+              {{"GLOBAL.HASPARKINGLIST."+oneItem.title | translate}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('hasParking').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.HASTERRACE"|translate}}</label>
+          <select formControlName="hasTerrace" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.HASTERRACE'|translate}}</option>
+            <option *ngFor="let oneItem of hasTerrace" [selected]="" [value]="oneItem.value">
+              {{"GLOBAL.HASTERRACELIST."+oneItem.title | translate}}
+            </option>
+          </select>
+          <label *ngIf="royaltyForm.get('hasTerrace').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.OWNERNAME"|translate}}</label>
+          <input class="form-control" formControlName="ownerName" type="text" (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.OWNERNAME'|translate}}">
+          <label *ngIf="royaltyForm.get('ownerName').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.MEDIATORNAME"|translate}}</label>
+          <input class="form-control" formControlName="mediatorName" type="text" (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.MEDIATORNAME'|translate}}">
+          <label *ngIf="royaltyForm.get('mediatorName').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.PHONENUMBER"|translate}}</label>
+          <input class="form-control" formControlName="phoneNumber" type="text" (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.PHONENUMBER'|translate}}">
+          <label *ngIf="royaltyForm.get('phoneNumber').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.MOBILEPHONENUMBER"|translate}}</label>
+          <input class="form-control" formControlName="mobilePhoneNumber" type="text"
+            (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.MOBILEPHONENUMBER'|translate}}">
+          <label *ngIf="royaltyForm.get('mobilePhoneNumber').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-4">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.EMPLOYNAME"|translate}}</label>
+          <input class="form-control" formControlName="employName" type="text" (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.EMPLOYNAME'|translate}}">
+          <label *ngIf="royaltyForm.get('employName').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-12">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.NOTE"|translate}}</label>
+          <textarea class="form-control" formControlName="note" (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.NOTE'|translate}}"></textarea>
+          <label *ngIf="royaltyForm.get('note').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-12">
+        <app-upload-img [isWithAdd]="true" [isMultiImg]="true" [arrayImage]="arrayImage"
+          (getarrayImageChange)="imageChangeCallback($event)">
+        </app-upload-img>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm submit-col">
+          <button (click)="back()" class="btn btn-danger" type="button">
+            {{"GLOBAL.BACK"|translate}}
+          </button>
+          <button *ngIf="!isUpdate" class="btn btn-success" type="submit">
+            {{"GLOBAL.ADD"|translate}}
+          </button>
+          <!-- <i *ngIf="!levelForm.invalid&&submitted" class="fa fa-circle-o-notch fa-2x fa-spin spinner-submit"></i> -->
+          <button *ngIf="isUpdate" class=" btn btn-success" type="submit">
+            {{"GLOBAL.UPDATE"|translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

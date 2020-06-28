@@ -1,0 +1,9 @@
+  <div class="row" style="">
+    <div class="col-sm-5" *ngFor="let oneDate of dateFilter;let index=index">
+      <div class="input-group md-date-pic" style="max-width: 300px;">
+        <material-datepicker placeholder="{{'GLOBAL.'+oneDate.label | translate}}" (onSelect)="changeDateChild(index)"
+          [(date)]="oneDate.value" class="cal-cont">
+        </material-datepicker>
+      </div>
+    </div>
+  </div>

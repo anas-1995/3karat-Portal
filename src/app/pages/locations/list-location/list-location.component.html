@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row" style="padding-bottom: 10px; margin: 0px;">
+    <button (click)="addLocation()" class="btn btn-success" style="float: right;" type="button">
+      {{"GLOBAL.ADDLOCATION"|translate}}
+    </button>
+  </div>
+  <app-custom-table [fields]="fields" [count]="count" [limit]="limit" [data]="arrayLocation"
+    (changePage)="changePages($event)" (actionOnRow)="action($event)">
+  </app-custom-table>
+</div>

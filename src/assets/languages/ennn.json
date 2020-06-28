@@ -1,0 +1,178 @@
+{
+  "LOGIN": {
+    "TITLE": "Log In",
+    "EMAIL": "Your Email Address",
+    "PASSWORD": "Password"
+  },
+  "TITLESPAGE": {
+    "LOGIN": "Login",
+    "ADDABSTRACTPRODUCT": "Add Base Product",
+    "EDITABSTRACTPRODUCT": "Edit Base Product",
+    "SHOWABSTRACTPRODUCT": "Show Base Product",
+    "LISTABSTRACTPRODUCT": "All Base Prdouct",
+    "ORDERABSTRACTPRODUCT": "Order Base Prdouct",
+    "ADDPRODUCT": "Add Product",
+    "EDITPRODUCT": "Edit Product",
+    "LISTCENTER": "All Center",
+    "SHOWCENTER": "Show Center",
+    "ADDCENTER": "Add Center",
+    "EDITCENTER": "Edit Center",
+    "LISTUSER": "All User",
+    "LISTSTAFUSER": "All Staf User",
+    "ADDUSER": "Add User",
+    "ADDCENTERPRODUCT": "Add Center Product",
+    "EDITCENTERPRODUCT": "Edit Center Product",
+    "LISTORDER": "All Order"
+  },
+  "MAINMENU": {
+    "ABSTRACTPRODUCT": "Base Product",
+    "ORDER": "Order",
+    "USER": "User",
+    "LOCATION": "Location",
+    "SUBLOCATION": "Sub Location",
+    "CITY": "City",
+    "STREET": "Street",
+    "ROYALTY": "Royalty"
+  },
+  "ERROR_FORM": {
+    "ERROR_FIELD_REQUIRED": "This field is required",
+    "ERROR_VALID_EMAIL": "Please enter a valid email address",
+    "ERROR_IMAGE_REQUIRED": "The image is required",
+    "CENTER_IS_REQUIRED": "The center is required",
+    "LOGIN_FIELD": "Login field"
+  },
+  "MODAL": {
+    "CONFIRMDELETE": {
+      "AREYOUSURE?": "Are you sure ?",
+      "YOUWANTTODELETE": "you want to delete",
+      "YOUWANTTOCHANGEABSTRACTPRODUCTSORDER": "you want to change base products order",
+      "YOUWANTTOARCHIVE": "you want to archive",
+      "YESDELETEIT": "Yes, delete it!",
+      "YESCHANGE": "Yes, Change All!",
+      "YESARCHIVEIT": "Yes, archive it!",
+      "NOTHANKS": "No, Thanks"
+    },
+    "SUCCESS": {
+      "UPDATE_IS_DONE": "Update is done",
+      "CREATE_IS_DONE": "Create is done",
+      "OK": "Ok"
+    },
+    "FAILED": {
+      "UPDATE_IS_DONE": "Update is done",
+      "OK": "Ok"
+    },
+    "ITEMINFO": {
+      "TITLE": "Item Info"
+    },
+    "CHANGESTATUS": {
+      "TITLE": "Change Order Status"
+    }
+  },
+  "ERROR_CODE": {
+    "500": "Some thing is error",
+    "401": "Email is already used",
+    "402": "Email is already used",
+    "454": "Center does not have a product",
+    "452": "Center Not Found"
+  },
+  "ERROR_TITLE": {
+    "452": "Please Assign Order To Center First"
+  },
+  "GLOBAL": {
+    "ADD": "Add",
+    "EDIT": "Edit",
+    "SHOW": "Show",
+    "ARCHIVE": "Archive",
+    "SAVE": "Save",
+    "RESET": "Reset",
+    "DELETE": "Delete",
+    "BACK": "Back",
+    "CANCEL": "Cancel",
+    "DONE": "Done",
+    "STATUS": "Status",
+    "CLEAR": "Clear",
+    "UPDATE": "Update",
+    "ENTER": "Enter",
+    "NAME": "Name",
+    "CREATED_AT": "Created At",
+    "CITY": "City",
+    "LOCATION": "location",
+    "STREET": "Street",
+    "ADDCITY": "Add City",
+    "ADDLOCATION": "Add Location",
+    "ADDSUBLOCATION": "Add Sub Location",
+    "ADDSTREET": "Add Street",
+    "ADDROYALTY": "Add Royalty",
+    "SUBLOCATION": "Sub Location",
+    "SEARCH": "Search",
+    "OPENSEARCH":"Open Search",
+    "CLOSESEARCH":"Close Search",
+    "MOBILE": "Mobile",
+    "OWNER": "Owner",
+    "BUILDINGNAME": "Building Name",
+    "BUILDINGNUMBER": "Building Number",
+    "AREA": "Area",
+    "FLOOR": "Floor",
+    "NUMBERROOM": "Number Room",
+    "DIRECTION": "Direction",
+    "TYPE": "Type",
+    "LOOK": "Look",
+    "COVER": "Cover",
+    "TYPEROYALTY": "Type Royalty",
+    "SELLINGMINPRICE": "Selling Min Price",
+    "SELLINGMAXPRICE": "Selling Max Price",
+    "RENTINGMINPRICE": "Renting Min Price",
+    "RENTINGMAXPRICE": "Renting Max Price",
+    "SELLINGPRICE": "Selling Price",
+    "RENTINGPRICE": "Renting Price",
+    "HASLIFT": "Has Lift",
+    "OWNERNAME": "Owner Name",
+    "MEDIATORNAME": "Mediator Name",
+    "PHONENUMBER": "Phone Number",
+    "MOBILEPHONENUMBER": "Mobile Phone Number",
+    "EMPLOYNAME": "Employ Name",
+    "NOTE": "Note",
+    "DIRECTIONLIST": {
+      "eastWest": "East West",
+      "northEast": "North East"
+    },
+    "HASLIFTLIST": {
+      "no": "No",
+      "yesInner": "Yes Inner",
+      "yesOuter": "Yes Outer"
+    },
+    "COVERLIST": {
+      "bad": "Bad",
+      "normal": "Normal",
+      "delox": "Delox",
+      "superDelox": "Super Delox"
+    },
+    "TYPEROYALTYLIST": {
+      "greenTaboo": "Green Taboo",
+      "notary": "Notary",
+      "courtRuling": "Court Ruling",
+      "violations": "Violations"
+    },
+    "TYPELIST": {
+      "selling": "Selling",
+      "renting": "Renting"
+    },
+    "GENDERS": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "STATUSLIST": {
+      "all": "All",
+      "active": "Active",
+      "unavailable": "Unavailable",
+      "pending": "Pending",
+      "packed": "Packed",
+      "delivering": "In Delivery",
+      "delivered": "Delivered",
+      "assigned": "Assigned",
+      "canceled": "Canceled"
+    },
+    "FROM": "From",
+    "TO": "To"
+  }
+}

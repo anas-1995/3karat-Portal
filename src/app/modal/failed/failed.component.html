@@ -1,0 +1,20 @@
+<div class="cd-popup" role="alert">
+  <div class="cd-popup-container">
+
+    <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;">
+      <span class="swal2-x-mark">
+        <span class="swal2-x-mark-line-left"></span>
+        <span class="swal2-x-mark-line-right"></span>
+      </span>
+    </div>
+
+    <h4>{{"ERROR_CODE."+errorCode| translate}}</h4>
+    <p *ngIf="errorTitle">{{"ERROR_TITLE."+errorTitle| translate}}</p>
+    <ul class="cd-buttons">
+      <li (click)="close()">
+        {{"MODAL.FAILED.OK"| translate}}
+      </li>
+    </ul>
+    <!-- <a href="#0" class="cd-popup-close img-replace"></a> -->
+  </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->

@@ -1,0 +1,22 @@
+<div class="cd-popup" role="alert">
+  <div class="cd-popup-container">
+
+    <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
+      <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
+      <span class="swal2-success-line-tip"></span>
+      <span class="swal2-success-line-long"></span>
+      <div class="swal2-success-ring"></div>
+      <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+      <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
+    </div>
+
+    <h4 *ngIf="isUpdate">{{"MODAL.SUCCESS.UPDATE_IS_DONE"| translate}}</h4>
+    <h4 *ngIf="!isUpdate">{{"MODAL.SUCCESS.CREATE_IS_DONE"| translate}}</h4>
+    <ul class="cd-buttons">
+      <li (click)="close()">
+        {{"MODAL.SUCCESS.OK"| translate}}
+      </li>
+    </ul>
+    <!-- <a href="#0" class="cd-popup-close img-replace"></a> -->
+  </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->

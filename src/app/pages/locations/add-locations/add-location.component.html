@@ -1,0 +1,46 @@
+<form (ngSubmit)="onFormSubmit()" [formGroup]="locationForm" class="levelForm">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm col-sm-6">
+        <div class="form-group">
+          <label for="type">{{'GLOBAL.CITY'|translate}}</label>
+          <select formControlName="cityId" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.CITY'|translate}}</option>
+            <option *ngFor="let oneCity of cities" [selected]="" [value]="oneCity.id">
+              {{oneCity.name}}
+            </option>
+          </select>
+          <label *ngIf="locationForm.get('cityId').invalid  && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-6">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.NAME"|translate}}</label>
+          <input class="form-control" formControlName="name" type="text" (input)="isSubmitted=false;message=''"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.NAME'|translate}}">
+          <label *ngIf="locationForm.get('name').invalid && isSubmitted"
+            class="text-danger errorLabel">{{'ERROR_FORM.ERROR_FIELD_REQUIRED'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm submit-col">
+          <button (click)="back()" class="btn btn-danger" type="button">
+            {{"GLOBAL.BACK"|translate}}
+          </button>
+          <button *ngIf="!isUpdate" class="btn btn-success" type="submit">
+            {{"GLOBAL.ADD"|translate}}
+          </button>
+          <!-- <i *ngIf="!levelForm.invalid&&submitted" class="fa fa-circle-o-notch fa-2x fa-spin spinner-submit"></i> -->
+          <button *ngIf="isUpdate" class=" btn btn-success" type="submit">
+            {{"GLOBAL.UPDATE"|translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

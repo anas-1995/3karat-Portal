@@ -1,0 +1,338 @@
+<div class="container">
+  <div class="row" style="padding-bottom: 10px; margin: 0px;">
+    <button (click)="addStreet()" class="btn btn-success" style="float: right;" type="button">
+      {{"GLOBAL.ADDROYALTY"|translate}}
+    </button>
+    <button (click)="show = !show" class="btn btn-warning" style="margin:0px 10px;" type="button">
+      {{show==true?("GLOBAL.CLOSESEARCH"|translate):"GLOBAL.OPENSEARCH"|translate}}
+    </button>
+  </div>
+  <div class="box" [class.opened]="show">
+    <div class="row">
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.TYPE"|translate}}</label>
+          <select [(ngModel)]="filter.typeItem" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.TYPE'|translate}}</option>
+            <option *ngFor="let oneType of types" [selected]="" [value]="oneType.value">
+              {{"GLOBAL.TYPELIST."+oneType.title | translate}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.DESCRIPTION"|translate}}</label>
+          <select [(ngModel)]="filter.description" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.DESCRIPTION'|translate}}</option>
+            <option *ngFor="let oneDescription of descriptions" [selected]="" [value]="oneDescription.value">
+              {{"GLOBAL.DESCRIPTIONLIST."+oneDescription.title | translate}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.STATUS"|translate}}</label>
+          <select [(ngModel)]="filter.status" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.STATUS'|translate}}</option>
+            <option *ngFor="let oneStatus of status" [selected]="" [value]="oneStatus.value">
+              {{"GLOBAL.STATUSLIST."+oneStatus.title | translate}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="type">{{'GLOBAL.CITY'|translate}}</label>
+          <select [(ngModel)]="filter.cityId" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.CITY'|translate}}</option>
+            <option *ngFor="let oneCity of cities" [selected]="" [value]="oneCity.id">
+              {{oneCity.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="type">{{'GLOBAL.LOCATION'|translate}}</label>
+          <select [(ngModel)]="filter.locationId" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.LOCATION'|translate}}</option>
+            <option *ngFor="let oneLocation of locations" [selected]="" [value]="oneLocation.id">
+              {{oneLocation.name}}
+            </option>
+          </select>
+        </div>
+
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="type">{{'GLOBAL.SUBLOCATION'|translate}}</label>
+          <select [(ngModel)]="filter.subLocationId" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.SUBLOCATION'|translate}}</option>
+            <option *ngFor="let oneSubLocation of subLocations" [selected]="" [value]="oneSubLocation.id">
+              {{oneSubLocation.name}}
+            </option>
+          </select>
+        </div>
+
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="type">{{'GLOBAL.STREET'|translate}}</label>
+          <select [(ngModel)]="filter.streetId" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.STREET'|translate}}</option>
+            <option *ngFor="let oneStreet of streets" [selected]="" [value]="oneStreet.id">
+              {{oneStreet.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.BUILDINGNAME"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.buildingName" type="text"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.BUILDINGNAME'|translate}}">
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.BUILDINGNUMBER"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.buildingNumber" type="text"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.BUILDINGNUMBER'|translate}}">
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.AREA"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.minArea" type="number" min="0"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.AREA'|translate}}">
+        </div>
+      </div>
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.AREA"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.maxArea" type="number" min="0"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.AREA'|translate}}">
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.FLOOR"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.floor" type="text"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.FLOOR'|translate}}">
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.NUMBERROOM"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.numberRoom" type="text"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.NUMBERROOM'|translate}}">
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.DIRECTION"|translate}}</label>
+          <select [(ngModel)]="filter.direction" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.DIRECTION'|translate}}</option>
+            <option *ngFor="let oneDirection of directions" [selected]="" [value]="oneDirection.value">
+              {{"GLOBAL.DIRECTIONLIST."+oneDirection.title | translate}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.LOOK"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.look" type="text"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.LOOK'|translate}}">
+        </div>
+      </div>
+
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.COVER"|translate}}</label>
+          <select [(ngModel)]="filter.cover" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.COVER'|translate}}</option>
+            <option *ngFor="let oneCover of covers" [selected]="" [value]="oneCover.value">
+              {{"GLOBAL.COVERLIST."+oneCover.title | translate}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.TYPEROYALTY"|translate}}</label>
+          <select [(ngModel)]="filter.typeRoyalty" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.TYPEROYALTY'|translate}}</option>
+            <option *ngFor="let oneType of typesRoyalty" [selected]="" [value]="oneType.value">
+              {{"GLOBAL.TYPEROYALTYLIST."+oneType.title | translate}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3" >
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.SELLINGMINPRICE"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.sellingMinPrice" type="number" min="0"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.SELLINGMINPRICE'|translate}}">
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3" >
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.SELLINGMAXPRICE"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.sellingMaxPrice" type="number" min="0"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.SELLINGMAXPRICE'|translate}}">
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-3" >
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.RENTINGMINPRICE"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.rentingMinPrice" type="number" min="0"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.RENTINGMINPRICE'|translate}}">
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3" >
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.RENTINGMAXPRICE"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.rentingMaxPrice" type="number" min="0"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.RENTINGMAXPRICE'|translate}}">
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.OWNERDESCRIPTION"|translate}}</label>
+          <select [(ngModel)]="filter.ownerDescription" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.OWNERDESCRIPTION'|translate}}
+            </option>
+            <option *ngFor="let oneItem of ownerDescriptions" [selected]="" [value]="oneItem.value">
+              {{"GLOBAL.OWNERDESCRIPTIONLIST."+oneItem.title | translate}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.HASLIFT"|translate}}</label>
+          <select [(ngModel)]="filter.hasLift" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.HASLIFT'|translate}}</option>
+            <option *ngFor="let oneItem of hasLift" [selected]="" [value]="oneItem.value">
+              {{"GLOBAL.HASLIFTLIST."+oneItem.title | translate}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.HASPARKING"|translate}}</label>
+          <select [(ngModel)]="filter.hasParking" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.HASPARKING'|translate}}</option>
+            <option *ngFor="let oneItem of hasParking" [selected]="" [value]="oneItem.value">
+              {{"GLOBAL.HASPARKINGLIST."+oneItem.title | translate}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.HASTERRACE"|translate}}</label>
+          <select [(ngModel)]="filter.hasTerrace" class="form-control">
+            <option value="" disabled selected>{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.HASTERRACE'|translate}}</option>
+            <option *ngFor="let oneItem of hasTerrace" [selected]="" [value]="oneItem.value">
+              {{"GLOBAL.HASTERRACELIST."+oneItem.title | translate}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.OWNERNAME"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.ownerName" type="text"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.OWNERNAME'|translate}}">
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.MEDIATORNAME"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.mediatorName" type="text"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.MEDIATORNAME'|translate}}">
+        </div>
+      </div>
+
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.PHONENUMBER"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.phoneNumber" type="text"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.PHONENUMBER'|translate}}">
+        </div>
+      </div>
+
+      <div class="col-sm col-sm-3">
+        <div class="form-group">
+          <label for="numberOfTimes">{{"GLOBAL.EMPLOYNAME"|translate}}</label>
+          <input class="form-control" [(ngModel)]="filter.employName" type="text"
+            placeholder="{{'GLOBAL.ENTER'|translate}} {{'GLOBAL.EMPLOYNAME'|translate}}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-sm col-sm-3">
+        <button (click)="filterData(true)" class="btn btn-success" style="float: left;margin-bottom: 30px;"
+          type="button">
+          {{"GLOBAL.SEARCH"|translate}}
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <app-custom-table [fields]="fields" [count]="count" [limit]="limit" [data]="arrayRoyalty"
+    (changePage)="changePages($event)" (actionOnRow)="action($event)">
+  </app-custom-table>
+</div>

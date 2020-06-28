@@ -1,0 +1,295 @@
+<div class="cd-popup" role="alert" style="direction: rtl;">
+
+  <div class="cd-popup-container">
+    <div>
+      <div class="cd-popup-header">
+        <h3  style="text-align: right;">{{"MODAL.ITEMINFO.TITLE"| translate}} | {{"GLOBAL.TYPELIST."+item.typeItem| translate}}</h3>
+      </div>
+      <div class="row" style="padding :20px 0px;text-align: right;">
+        <div class="col-sm-12">
+          <div class="row" style="padding: 5px 0px;margin: 0px;">
+            <div class="col-sm-4">
+              <strong class="badge badge-inverse">
+                {{item.street.subLocation.location.city.name}}
+              </strong>
+            </div>
+            <div class="col-sm-4">
+
+              <strong class="badge badge-inverse">
+                {{item.street.subLocation.location.name}}
+              </strong>
+            </div>
+            <div class="col-sm-4">
+              <strong class="badge badge-inverse">
+                {{item.street.subLocation.name}}
+              </strong>
+            </div>
+            <div class="col-sm-4">
+
+              <strong class="badge badge-inverse">
+                {{item.street.name}}
+              </strong>
+            </div>
+            <div class="col-sm-4">
+              <strong class="badge badge-inverse">
+                {{item.buildingName}} {{item.buildingNumber}}
+              </strong>
+            </div>
+          </div>
+          <div class="row" style="padding: 5px 0px;margin: 0px;text-align: center;">
+            <div class="col-sm-4">
+              <strong>
+                {{item.ownerName}}
+              </strong>
+            </div>
+            <div class="col-sm-4">
+              <strong>
+                {{item.phoneNumber}}
+              </strong>
+              <br *ngIf="item.mobilePhoneNumber">
+              <strong *ngIf="item.mobilePhoneNumber">
+                {{item.mobilePhoneNumber}}
+              </strong>
+            </div>
+
+            <div class="col-sm-4">
+              <strong>
+                {{item.mediatorName}}
+              </strong>
+            </div>
+          </div>
+          <div class="row" style="padding: 5px 0px;margin: 0px;text-align: center;">
+            <div class="col-sm-3">
+              <strong class="badge badge-info">
+                {{item.area}}
+              </strong>
+            </div>
+            <div class="col-sm-3">
+              <strong class="badge badge-success" >
+                {{item.sellingPrice}} ~ {{item.rentingPrice}}
+              </strong>
+              <!-- <strong class="badge badge-success" *ngIf="item.typeItem!='selling'">
+                
+              </strong> -->
+            </div>
+            <div class="col-sm-3">
+              <strong>
+                {{item.floor}}
+              </strong>
+            </div>
+            <div class="col-sm-3">
+              <strong>
+                {{"GLOBAL.STATUSLIST."+item.status| translate}}
+              </strong>
+            </div>
+          </div>
+          <div class="row" style="padding: 5px 0px;margin: 0px;">
+            <strong class="col-sm-12" style="text-align:right">
+              {{item.numberRoom}}
+            </strong>
+          </div>
+          <div class="row" style="padding: 5px 0px;margin: 0px;">
+            <div class="col-sm-6">
+              <span>
+                {{"GLOBAL.LOOK"|translate}} :
+              </span>
+              <strong>
+                {{item.look}}
+
+              </strong>
+            </div>
+
+            <div class="col-sm-6">
+              <span>
+                {{"GLOBAL.TYPEROYALTY"|translate}} :
+              </span>
+              <strong>
+
+                {{"GLOBAL.TYPEROYALTYLIST."+item.typeRoyalty | translate}}
+
+              </strong>
+            </div>
+
+            <div class="col-sm-6">
+              <span>
+                {{"GLOBAL.DESCRIPTION"|translate}} :
+              </span>
+              <strong>
+
+                {{"GLOBAL.DESCRIPTIONLIST."+item.description | translate}}
+
+              </strong>
+            </div>
+
+
+            <div class="col-sm-6">
+              <span>
+                {{"GLOBAL.OWNERDESCRIPTION"|translate}} :
+              </span>
+              <strong>
+
+                {{"GLOBAL.OWNERDESCRIPTIONLIST."+item.ownerDescription | translate}}
+
+              </strong>
+            </div>
+
+
+            <div class="col-sm-6">
+              <span>
+                {{"GLOBAL.DIRECTION"|translate}} :
+              </span>
+              <strong>
+
+                {{"GLOBAL.DIRECTIONLIST."+item.direction | translate}}
+
+              </strong>
+            </div>
+
+            <div class="col-sm-6">
+              <span>
+                {{"GLOBAL.COVER"|translate}} :
+              </span>
+              <strong>
+
+                {{"GLOBAL.COVERLIST."+item.cover | translate}}
+
+              </strong>
+            </div>
+
+            <div class="col-sm-6">
+              <span>
+                {{"GLOBAL.HASLIFT"|translate}} :
+              </span>
+              <strong>
+
+                {{"GLOBAL.HASLIFTLIST."+item.hasLift | translate}}
+
+              </strong>
+            </div>
+
+            <div class="col-sm-6">
+              <span>
+                {{"GLOBAL.HASPARKING"|translate}} :
+              </span>
+              <strong>
+
+                {{"GLOBAL.HASPARKINGLIST."+item.hasParking | translate}}
+
+              </strong>
+            </div>
+
+
+            <div class="col-sm-6">
+              <span>
+                {{"GLOBAL.HASTERRACE"|translate}} :
+              </span>
+              <strong>
+
+                {{"GLOBAL.HASTERRACELIST."+item.hasTerrace | translate}}
+
+              </strong>
+            </div>
+
+
+            <div class="col-sm-6">
+              <span>
+                {{"GLOBAL.EMPLOYNAME"|translate}} :
+              </span>
+              <strong>
+                {{item.employName}}
+              </strong>
+            </div>
+
+          </div>
+          <div class="row" style="padding: 5px 0px;margin: 0px;">
+
+            <span class="col-sm-12" style="text-align:left">
+              {{item.note}}
+            </span>
+
+          </div>
+        </div>
+      </div>
+      <!-- <div class="" [ngClass]="order.isDelivery==false ? 'col-sm-4' : 'col-sm-2'">
+          <strong *ngIf="order.user?.status=='activated'" class="fa fa-check-circle" aria-hidden="true"
+            style="font-size: 18px;color: green;">
+          </strong>
+          <strong *ngIf="order.user?.status=='deactivated'" class="fa fa-times-circle" aria-hidden="true"
+            style="font-size: 18px;color: #e8423a;">
+          </strong>
+        </div>
+
+      </div>
+      <div class="row" *ngIf="order.centerId" style="padding :20px 0px;">
+        <div class="col-sm-4">
+          <strong>
+            {{order.center[languageKey['name']]}}
+          </strong>
+        </div>
+        <div class="col-sm-4">
+          <strong>
+          </strong>
+        </div>
+
+        <div class="col-sm-4">
+          <strong *ngIf="order.center?.status=='activated'" class="fa fa-check-circle" aria-hidden="true"
+            style="font-size: 18px;color: green;">
+          </strong>
+          <strong *ngIf="order.center?.status=='deactivated'" class="fa fa-times-circle" aria-hidden="true"
+            style="font-size: 18px;color: #e8423a;">
+          </strong>
+        </div>
+
+      </div>
+
+      <div class="row" style="padding :20px 0px;">
+        <div class="col-sm-4">
+          <strong class="badge badge-info"> {{order.total}}</strong>
+        </div>
+        <div class="col-sm-4">
+
+          <strong *ngIf=" (order.status=='unavailable')" class="badge badge-danger">
+            {{"GLOBAL.STATUSLIST."+ order.status|translate}}</strong>
+          <strong *ngIf=" (order.status=='available')" class="badge badge-success">
+            {{"GLOBAL.STATUSLIST."+ order.status|translate}}</strong>
+
+          <strong *ngIf=" (order.status=='pending' || order.status=='packed' ||order.status=='assigned')"
+            class="badge badge-warning">
+            {{"GLOBAL.STATUSLIST."+order.status|translate}}</strong>
+
+
+          <strong *ngIf=" (order.status=='delivered' || order.status=='delivering')" class="badge badge-success">
+            {{"GLOBAL.STATUSLIST."+order.status|translate}}</strong>
+
+
+
+          <strong *ngIf=" (order.status=='canceled')" class="badge badge-inverse">
+            {{"GLOBAL.STATUSLIST."+order.status|translate}}</strong>
+
+
+        </div>
+        <div class="col-sm-4">
+          <strong>
+            {{formatDate(order.createdAt)}}
+          </strong>
+        </div>
+
+      </div>
+      <div class="row" style="margin: 0px 0px;max-height: 200px;overflow: scroll;" *ngIf="order.products">
+        <div class="col-sm-12">
+          <app-custom-table [fields]="fields" [withPage]="false" [count]="order.products.length"
+            [limit]="order.products.length" [data]="order.products">
+          </app-custom-table>
+        </div>
+      </div> -->
+      <ul class="cd-buttons" style="padding-right: 0px;">
+        <li (click)="close()">
+          {{"GLOBAL.DONE"| translate}}
+        </li>
+        <li (click)="changeState()">
+          {{"GLOBAL.EDIT"| translate}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
