@@ -4248,7 +4248,7 @@ var AuthService = (function () {
     };
     AuthService.prototype.logout = function () {
         this.logoutLocalStorage();
-        this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('login');
     };
     AuthService.prototype.logInLocalStorage = function (data) {
         localStorage.setItem('userId', data.userId);
